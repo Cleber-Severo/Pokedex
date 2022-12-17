@@ -1,0 +1,11 @@
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemoncard {
+  display: flex;
+}
+.pokemoncard p {
+  color: red;
+}/*# sourceMappingURL=pokemoncard.css.map */

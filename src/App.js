@@ -1,31 +1,40 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './App.css';
+import PokemonCard from './components/PokemonCard';
 
 
 
 function App() {
-  const [pokemonData, setPokemonData] = useState('');
+  const [pokemonData, setPokemonData] = useState([]);
 
-  const getPokemon = () => {
-       
-    axios.get('https://pokeapi.co/api/v2/pokemon/ditto').then((res) => setPokemonData(res));
-  }
+   const getPokemons = () => {
+    var endpoints = [];
+    for (var i = 1; i < 100; i++) {
+      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    }
+    axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemonData(res));
+  };
 
   useEffect(() => {
-    getPokemon();
+    getPokemons()
   }, [])
 
-if (pokemonData !== []){
-    return (
+
+  return (
     <div className="App">
-      {console.log(pokemonData.data)}
-      {/* {console.log(pokemonData.data.name)} */}
-      {/* {console.log(pokemonData.data.types[0].type.name)} */}
-      {/* <img src={pokemonData.data.sprites.front_shiny} ></img> */}
+      
+      {console.log(pokemonData)}
+      <section className='pokemon-list' >
+        {pokemonData.map( pokemon => {
+          const {name, order, sprites} = pokemon.data;
+          return <PokemonCard key={order} name={name} image={sprites.front_default} />
+        })}
+      
+      </section>
+      
     </div>
-  );
+    )
 }
-}
+
 
 export default App;
