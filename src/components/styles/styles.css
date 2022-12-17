@@ -23,5 +23,18 @@
 .Navbar input {
   padding: 1.2rem;
   border: none;
+  background-color: rgba(70, 80, 80, 0.9);
   height: 10px;
+}
+.Navbar input::-moz-placeholder {
+  color: #dadada;
+  font-weight: 400;
+}
+.Navbar input:-ms-input-placeholder {
+  color: #dadada;
+  font-weight: 400;
+}
+.Navbar input::placeholder {
+  color: #dadada;
+  font-weight: 400;
 }/*# sourceMappingURL=styles.css.map */
