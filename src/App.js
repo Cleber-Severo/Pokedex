@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Navbar from './components/navbar';
 import PokemonCard from './components/PokemonCard';
 
-
+import './components/styles/styles.css';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <Navbar/>
       {console.log(pokemonData)}
       <section className='pokemon-list' >
         {pokemonData.map( pokemon => {

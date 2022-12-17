@@ -1,0 +1,27 @@
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemoncard {
+  display: flex;
+}
+.pokemoncard p {
+  color: red;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #323232;
+}
+.Navbar h3 {
+  color: orange;
+}
+.Navbar input {
+  padding: 1.2rem;
+  border: none;
+  height: 10px;
+}/*# sourceMappingURL=styles.css.map */

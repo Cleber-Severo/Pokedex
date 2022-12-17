@@ -1,0 +1,16 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 2rem;
+    background-color: #323232;
+
+        h3 {
+            color: orange;
+        }
+        input {
+            padding: 1.2rem;
+            border: none;
+            height: 10px;
+        }
+}

@@ -1,4 +1,3 @@
-import './pokemoncard.css'
 
 const PokemonCard = ({name, image}) => {
   return (
