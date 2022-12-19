@@ -5,6 +5,10 @@
 
 .pokemoncard {
   display: flex;
+  flex-direction: column;
+}
+.pokemoncard img {
+  height: 10rem;
 }
 .pokemoncard p {
   color: red;
@@ -37,4 +41,21 @@
 .Navbar input::placeholder {
   color: #dadada;
   font-weight: 400;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.loading h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.loading img {
+  height: 8rem;
 }/*# sourceMappingURL=styles.css.map */

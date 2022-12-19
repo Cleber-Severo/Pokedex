@@ -5,7 +5,11 @@
 
 .pokemoncard {
     display: flex;
-    p{
-        color: red;
-    }
+    flex-direction: column;
+        img{ 
+            height: 10rem;
+        }
+        p{
+            color: red;
+        }
 }

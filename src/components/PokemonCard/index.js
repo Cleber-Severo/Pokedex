@@ -2,8 +2,8 @@
 const PokemonCard = ({name, image}) => {
   return (
     <div className="pokemoncard">
-        <p>{name}</p>
         <img src={image} />
+        <p>{name}</p>
     </div>
   )
 }
