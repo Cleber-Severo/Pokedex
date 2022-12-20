@@ -26,6 +26,10 @@
   transform: scale(1.03);
   cursor: pointer;
 }
+.pokemoncard div {
+  display: flex;
+  gap: 4px;
+}
 .pokemoncard img {
   height: 10rem;
 }

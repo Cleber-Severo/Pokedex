@@ -36,6 +36,10 @@
             transform: scale(1.03);
             cursor: pointer;
         }
+        div{
+            display: flex;
+            gap: 4px;
+        }
         img{ 
             height: 10rem;
         }
