@@ -34,7 +34,7 @@ function App() {
   const getPokemons = async () => {
     try {
       var endpoints = [];
-      for (var i = 1; i < 5; i++) {
+      for (var i = 1; i < 100; i++) {
         endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
       }
       await axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemonData(res));

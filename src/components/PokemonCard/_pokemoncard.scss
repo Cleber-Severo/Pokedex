@@ -1,5 +1,5 @@
 .pokemon-list {
-    background-color: rgba(255, 166, 0, 0.7);
+    background-color: rgba(255, 166, 0, 0.4);
 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -28,11 +28,19 @@
     padding-bottom: 2rem;
 
     box-sizing: border-box;
+    transition: all .25s ease-in;
+
+        &:hover {
+            transform: rotate(3deg);
+            transform: scale(1.03);
+            cursor: pointer;
+        }
         img{ 
             height: 10rem;
         }
         p{
-            color: red;
+            color: white;
+            font-weight: 600;
             margin: 0;
         }
 }
