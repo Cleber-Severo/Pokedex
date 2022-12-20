@@ -1,10 +1,10 @@
 .pokemon-list {
-  background-color: rgba(255, 166, 0, 0.4);
+  background-color: #d9d9d9;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 8px;
   padding: 8px;
-  height: 100vh;
+  height: auto;
   width: 100%;
   box-sizing: border-box;
 }
@@ -31,6 +31,7 @@
 }
 .pokemoncard p {
   color: white;
+  border-radius: 8px;
   font-weight: 600;
   margin: 0;
   padding: 0.3rem;
@@ -41,7 +42,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 2rem;
-  background-color: #323232;
+  background-color: #262626;
 }
 .Navbar h3 {
   color: orange;
@@ -49,7 +50,7 @@
 .Navbar input {
   padding: 1.2rem;
   border: none;
-  background-color: rgba(70, 80, 80, 0.9);
+  background-color: #4d4d4d;
   height: 10px;
 }
 .Navbar input::-moz-placeholder {
