@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
-  padding: 8px;
+  padding: 16px;
   height: auto;
   width: 100%;
   box-sizing: border-box;
@@ -17,7 +17,7 @@
   border-radius: 16px;
   max-height: 200px;
   padding: 0.5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 0.8rem;
   box-sizing: border-box;
   transition: all 0.25s ease-in;
 }
@@ -28,7 +28,10 @@
 }
 .pokemoncard div {
   display: flex;
-  gap: 4px;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
 }
 .pokemoncard img {
   height: 10rem;
