@@ -48,13 +48,31 @@ function App() {
     getPokemons()
   }, [])
 
+  const filterPokemon = (value) => {
+    console.log(value)
+    
+    var filteredPokemon = [];
+    
+    if(value === ''){
+      getPokemons()
+    }
+
+    for (var i in pokemonData) {
+      if(pokemonData[i].data.name.includes(value)) {
+        filteredPokemon.push(pokemonData[i]);
+      }
+    }
+    console.log(filteredPokemon);
+    setPokemonData(filteredPokemon);
+  }
+
   if(loading){
     return <Loading/>
   }
 
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar filterPokemon={filterPokemon} />
       {console.log(pokemonData)}
       <section className='pokemon-list' >
         {pokemonData.map( pokemon => {
