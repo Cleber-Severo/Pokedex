@@ -10,13 +10,12 @@
 }
 
 .pokemoncard {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  max-height: 200px;
-  padding: 0.5rem;
   padding-bottom: 0.8rem;
   box-sizing: border-box;
   transition: all 0.25s ease-in;
@@ -26,22 +25,36 @@
   transform: scale(1.03);
   cursor: pointer;
 }
-.pokemoncard div {
+.pokemoncard .pokemoncard__container {
   display: flex;
-  gap: 8px;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  justify-content: center;
+}
+.pokemoncard .pokemoncard__container .pokemoncar__container--name {
+  font-size: 26px;
+  color: #000;
+  font-weight: bold;
+}
+.pokemoncard .type {
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
   box-sizing: border-box;
 }
+.pokemoncard .type p {
+  font-size: 12px;
+  padding: 0.2rem 0.4rem;
+}
 .pokemoncard img {
-  height: 10rem;
+  height: 14rem;
 }
 .pokemoncard p {
   color: white;
-  border-radius: 8px;
+  border-radius: 4px;
   font-weight: 600;
-  margin: 0;
-  padding: 0.3rem;
+  padding: 0.1rem;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 1023px) {
