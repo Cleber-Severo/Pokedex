@@ -89,13 +89,23 @@ function App() {
       <div className="App">
         <Navbar filterPokemon={filterPokemon} />
         
-        <Pagination pagesNum={pokemonData.length} cardsPerPage={cardsPerPage} changePage={setCurrentPage} />  
+        <Pagination 
+          pagesNum={pokemonData.length} 
+          cardsPerPage={cardsPerPage} 
+          changePage={setCurrentPage} 
+          currentPage={currentPage}
+        />  
 
         <section className='pokemon-list' >
           {currentCards.map( pokemon => {
             const {name, order, sprites, types} = pokemon.data;
             console.log(pokemon.data)
-            return <PokemonCard key={order} name={name} image={sprites.front_default} color={colours} type={types}/>
+            return <PokemonCard 
+                      key={order} 
+                      name={name} 
+                      image={sprites.front_default} 
+                      color={colours} 
+                      type={types}/>
           })}
 
         

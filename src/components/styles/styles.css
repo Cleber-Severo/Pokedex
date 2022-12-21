@@ -143,6 +143,9 @@
   background-color: #d9d9d9;
   margin-right: 4px;
 }
+.pagination .active {
+  background-color: orange;
+}
 
 body {
   height: 100vh;
