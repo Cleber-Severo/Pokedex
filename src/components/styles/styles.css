@@ -133,6 +133,7 @@
   width: 100%;
   padding: 1rem;
   background-color: #d9d9d9;
+  margin: 0 auto;
 }
 .pagination button {
   cursor: pointer;

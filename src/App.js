@@ -10,6 +10,7 @@ import './components/styles/styles.css';
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pagination, setPagination] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(9);
  
@@ -40,7 +41,7 @@ function App() {
   };
 
   const getPokemons = async () => {
-    setLoading(true);
+    
     try {
       var endpoints = [];
       for (var i = 1; i < 200; i++) {
@@ -48,6 +49,7 @@ function App() {
       }
       await axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemonData(res));
       setLoading(false);
+
     } catch (error) {
       setLoading(true);
     }
@@ -63,12 +65,15 @@ function App() {
     const filteredPokemon = [];
     
     if(value === ''){
-      getPokemons()
+      setPagination(true);
+      getPokemons();
+      return;
     }
 
     for (var i in pokemonData) {
       if(pokemonData[i].data.name.includes(value)) {
         filteredPokemon.push(pokemonData[i]);
+        setPagination(false)
       }
     }
     console.log(filteredPokemon);
@@ -79,23 +84,42 @@ function App() {
     return <Loading/>
   }
 
-  return (
-    <div className="App">
-      <Navbar filterPokemon={filterPokemon} />
-      
-      <Pagination pagesNum={pokemonData.length} cardsPerPage={cardsPerPage} changePage={setCurrentPage} />  
-      
-      <section className='pokemon-list' >
-        {currentCards.map( pokemon => {
-          const {name, order, sprites, types} = pokemon.data;
-          console.log(pokemon.data)
-          return <PokemonCard key={order} name={name} image={sprites.front_default} color={colours} type={types}/>
-        })}
+  if(pagination){
+    return (
+      <div className="App">
+        <Navbar filterPokemon={filterPokemon} />
+        
+        <Pagination pagesNum={pokemonData.length} cardsPerPage={cardsPerPage} changePage={setCurrentPage} />  
 
-      
-      </section>
-      
-    </div>
+        <section className='pokemon-list' >
+          {currentCards.map( pokemon => {
+            const {name, order, sprites, types} = pokemon.data;
+            console.log(pokemon.data)
+            return <PokemonCard key={order} name={name} image={sprites.front_default} color={colours} type={types}/>
+          })}
+
+        
+        </section>
+        
+      </div>
+    )
+  }
+
+  return (
+      <div className="App">
+        <Navbar filterPokemon={filterPokemon} />
+        
+        <section className='pokemon-list' >
+          {pokemonData.map( pokemon => {
+            const {name, order, sprites, types} = pokemon.data;
+            console.log(pokemon.data)
+            return <PokemonCard key={order} name={name} image={sprites.front_default} color={colours} type={types}/>
+          })}
+
+        
+        </section>
+        
+      </div>
     )
 }
 
