@@ -1,5 +1,7 @@
 .pagination {
     display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
     justify-content: center;
     width: 100%;
     padding: 1rem;
@@ -11,6 +13,7 @@
         color: $primary-color;
         background-color: $main-bg-color;
         margin-right: 4px;
+        margin-bottom: 4px;
      }
      .active{
         background-color: orange;
