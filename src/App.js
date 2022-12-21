@@ -98,12 +98,13 @@ function App() {
 
         <section className='pokemon-list' >
           {currentCards.map( pokemon => {
-            const {name, order, sprites, types} = pokemon.data;
+            const {name, order, sprites, types, stats} = pokemon.data;
             console.log(pokemon.data)
             return <PokemonCard 
                       key={order} 
                       name={name} 
                       image={sprites.front_default} 
+                      stats={stats}
                       color={colours} 
                       type={types}/>
           })}

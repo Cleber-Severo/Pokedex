@@ -20,7 +20,7 @@ const style = {
   p: 4,
 };
 
-const PokemonCard = ({name, image, color, type}) => {
+const PokemonCard = ({name, image, color, type, stats}) => {
   
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -67,7 +67,18 @@ const PokemonCard = ({name, image, color, type}) => {
             <img src={image} alt="" style={{display: 'block'}} />
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            type:{typesHandler()}
+           
+          
+            <div className='status' >              
+              <p><span>{stats[0].stat.name}: </span><span>{stats[0].base_stat}</span></p>
+              <p><span>{stats[2].stat.name}: </span><span>{stats[1].base_stat}</span></p>
+              <p><span>{stats[2].stat.name}: </span><span>{stats[2].base_stat}</span></p>
+              <p><span>{stats[3].stat.name}: </span><span>{stats[3].base_stat}</span></p>
+              <p><span>{stats[4].stat.name}: </span><span>{stats[4].base_stat}</span></p>
+              <p><span>{stats[5].stat.name}: </span><span>{stats[5].base_stat}</span></p>
+              
+            </div>
+             
           </Typography>
         </Box>
       </Modal>

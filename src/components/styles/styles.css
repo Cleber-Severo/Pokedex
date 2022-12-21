@@ -68,6 +68,17 @@
   box-sizing: border-box;
 }
 
+.status {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.status p {
+  margin: 0;
+  margin-bottom: 0.2rem;
+  font-weight: bold;
+}
+
 @media screen and (max-width: 1023px) {
   .pokemon-list {
     grid-template-columns: repeat(2, 1fr);
