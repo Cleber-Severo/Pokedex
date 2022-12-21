@@ -9,6 +9,13 @@ import './components/styles/styles.css';
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(2);
+  const [cardsPerPage, setCardsPerPage] = useState(12);
+ 
+
+  const lastCardIndex = currentPage * cardsPerPage;
+  const firstCardIndex = lastCardIndex - cardsPerPage;
+  const currentCards = pokemonData.slice(firstCardIndex, lastCardIndex);
 
   const colours = {
     normal: '#A8A77A',
@@ -76,7 +83,7 @@ function App() {
       <Navbar filterPokemon={filterPokemon} />
       {console.log(pokemonData)}
       <section className='pokemon-list' >
-        {pokemonData.map( pokemon => {
+        {currentCards.map( pokemon => {
           const {name, order, sprites, types} = pokemon.data;
           console.log(pokemon.data)
           return <PokemonCard key={order} name={name} image={sprites.front_default} color={colours} type={types}/>
