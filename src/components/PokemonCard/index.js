@@ -1,5 +1,6 @@
 
 import hexToRgba from 'hex-to-rgba';
+import {AiFillInfoCircle} from 'react-icons/ai'
 
 
 const PokemonCard = ({name, image, color, type}) => {
@@ -25,6 +26,7 @@ const PokemonCard = ({name, image, color, type}) => {
   
   return (
     <div className="pokemoncard" style={{ backgroundColor: hexToRgba(color[type[0].type.name], 0.6) }} >
+        <AiFillInfoCircle className='pokemoncard__icon' />
         <img src={image} />
         <div className='pokemoncard__container'>
           <p className='pokemoncar__container--name'>{name}</p>
