@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Loading from './components/loading';
 import Navbar from './components/navbar';
+import Pagination from './components/pagination/Pagination';
 import PokemonCard from './components/PokemonCard';
 
 import './components/styles/styles.css';
@@ -9,8 +10,8 @@ import './components/styles/styles.css';
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(2);
-  const [cardsPerPage, setCardsPerPage] = useState(12);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardsPerPage, setCardsPerPage] = useState(9);
  
 
   const lastCardIndex = currentPage * cardsPerPage;
@@ -42,7 +43,7 @@ function App() {
     setLoading(true);
     try {
       var endpoints = [];
-      for (var i = 1; i < 400; i++) {
+      for (var i = 1; i < 200; i++) {
         endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
       }
       await axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemonData(res));
@@ -81,13 +82,16 @@ function App() {
   return (
     <div className="App">
       <Navbar filterPokemon={filterPokemon} />
-      {console.log(pokemonData)}
+      
+      <Pagination pagesNum={pokemonData.length} cardsPerPage={cardsPerPage} changePage={setCurrentPage} />  
+      
       <section className='pokemon-list' >
         {currentCards.map( pokemon => {
           const {name, order, sprites, types} = pokemon.data;
           console.log(pokemon.data)
           return <PokemonCard key={order} name={name} image={sprites.front_default} color={colours} type={types}/>
         })}
+
       
       </section>
       
