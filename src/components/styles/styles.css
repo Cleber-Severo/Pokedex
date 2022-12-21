@@ -129,7 +129,8 @@
 }
 
 .pagination {
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100%;
   padding: 1rem;
   background-color: #d9d9d9;
@@ -137,6 +138,10 @@
 }
 .pagination button {
   cursor: pointer;
+  border: 2px solid #262626;
+  color: #262626;
+  background-color: #d9d9d9;
+  margin-right: 4px;
 }
 
 body {

@@ -1,11 +1,15 @@
 .pagination {
-    display: block;
+    display: flex;
+    justify-content: center;
     width: 100%;
     padding: 1rem;
     background-color: $main-bg-color;
     margin: 0 auto;
      button{
         cursor: pointer;
-
+        border: 2px solid $primary-color;
+        color: $primary-color;
+        background-color: $main-bg-color;
+        margin-right: 4px;
      }
 }
