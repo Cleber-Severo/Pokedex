@@ -111,19 +111,25 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {name}
-            <img src={image} alt="" style={{display: 'block'}} />
-          </Typography>
-          <Box id="modal-modal-description" className='status' sx={{ mt: 2 }}>
-            
-              <p><span>{stats[0].stat.name}: </span><span>{stats[0].base_stat}</span></p>
-              <p><span>{stats[1].stat.name}: </span><span>{stats[1].base_stat}</span></p>
-              <p><span>{stats[2].stat.name}: </span><span>{stats[2].base_stat}</span></p>
-              <p><span>{stats[3].stat.name}: </span><span>{stats[3].base_stat}</span></p>
-              <p><span>{stats[4].stat.name}: </span><span>{stats[4].base_stat}</span></p>
-              <p><span>{stats[5].stat.name}: </span><span>{stats[5].base_stat}</span></p>
-              
+
+          <Box className='containter-box' >
+            <Typography id="modal-modal-title" className='modal__header' variant="h6" component="h2">
+              <p>{name}</p>
+              <img src={image} alt="" style={{display: 'block'}} />
+            </Typography>
+            <Box id="modal-modal-description" className='status' sx={{ mt: 2 }}>  
+                <p><span>{stats[0].stat.name}: </span><span>{stats[0].base_stat}</span></p>
+                <p><span>{stats[1].stat.name}: </span><span>{stats[1].base_stat}</span></p>
+                <p><span>{stats[2].stat.name}: </span><span>{stats[2].base_stat}</span></p>
+                <p><span>{stats[3].stat.name}: </span><span>{stats[3].base_stat}</span></p>
+                <p><span>{stats[4].stat.name}: </span><span>{stats[4].base_stat}</span></p>
+                <p><span>{stats[5].stat.name}: </span><span>{stats[5].base_stat}</span></p>     
+            </Box>
+          </Box>
+
+          
+
+          <Box>
             <div className='status__imgs' >
               <img src={firstPokemon} alt="" />
               <img src={secondPokemon} alt="" /> 
