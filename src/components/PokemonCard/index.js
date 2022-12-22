@@ -24,7 +24,7 @@ const style = {
 };
 
 const PokemonCard = ({name, image, color, type, stats, species}) => {
-  
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -40,7 +40,7 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
   const typesHandler = () => {
     if(type[1]) {
       const p1Color = {backgroundColor: color[type[1].type.name]};
-      return( 
+      return(
         <div className='type' >
           <p style={pColor}>{type[0].type.name}</p>
           <p style={p1Color}>{type[1].type.name}</p>
@@ -50,7 +50,7 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
 
     return <div className='type'><p style={pColor} >{type[0].type.name}</p></div>
   }
-  
+
   const speciesCall = async () => {
     const pokeImg = []
     const res = await axios.get(species.url);
@@ -62,33 +62,33 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
     const chainFirstPokemon =  await axios.get(chainInfo.species.url);
     const chainSecondPokemon = await axios.get(chainInfo.evolves_to[0].species.url);
     const chainThirdPokemon = await axios.get(chainInfo.evolves_to[0].evolves_to[0].species.url);
-  
+
     const resFirstPokemon = await axios.get( 'https://pokeapi.co/api/v2/pokemon/'+chainFirstPokemon.data.name);
     const resSecondPokemon = await axios.get( 'https://pokeapi.co/api/v2/pokemon/'+chainSecondPokemon.data.name);
     const resThirdPokemon = await axios.get( 'https://pokeapi.co/api/v2/pokemon/'+chainThirdPokemon.data.name);
-    
+
     pokeImg.push(resFirstPokemon.data.sprites.front_default);
     pokeImg.push(resSecondPokemon.data.sprites.front_default);
     pokeImg.push(resThirdPokemon.data.sprites.front_default);
 
 
-    console.log(resFirstPokemon.data);
-    console.log(resFirstPokemon.data.name);
+    // console.log(resFirstPokemon.data);
+    // console.log(resFirstPokemon.data.name);
     console.log(resFirstPokemon.data.sprites);
-    console.log(resSecondPokemon.data);
-    console.log(resThirdPokemon.data);
+    // console.log(resSecondPokemon.data);
+    // console.log(resThirdPokemon.data);
 
-    
+
     setFirstPokemon(pokeImg[0]);
     setSecondPokemon(pokeImg[1]);
     setThirdPokemon(pokeImg[2]);
-    
+
 
     // console.log(chainFirstPokemon.data.name);
     // console.log(chainSecondPokemon.data);
     // console.log(chainThirdPokemon.data);
 
-    
+
   }
 
   return (
@@ -117,23 +117,23 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
               <p>{name}</p>
               <img src={image} alt="" style={{display: 'block'}} />
             </Typography>
-            <Box id="modal-modal-description" className='status' sx={{ mt: 2 }}>  
+            <Box id="modal-modal-description" className='status' sx={{ mt: 2 }}>
                 <p><span>{stats[0].stat.name}: </span><span>{stats[0].base_stat}</span></p>
                 <p><span>{stats[1].stat.name}: </span><span>{stats[1].base_stat}</span></p>
                 <p><span>{stats[2].stat.name}: </span><span>{stats[2].base_stat}</span></p>
                 <p><span>{stats[3].stat.name}: </span><span>{stats[3].base_stat}</span></p>
                 <p><span>{stats[4].stat.name}: </span><span>{stats[4].base_stat}</span></p>
-                <p><span>{stats[5].stat.name}: </span><span>{stats[5].base_stat}</span></p>     
+                <p><span>{stats[5].stat.name}: </span><span>{stats[5].base_stat}</span></p>
             </Box>
           </Box>
 
-          
+
 
           <Box>
             <div className='status__imgs' >
               <img src={firstPokemon} alt="" />
-              <img src={secondPokemon} alt="" /> 
-              <img src={thirdPokemon} alt="" /> 
+              <img src={secondPokemon} alt="" />
+              <img src={thirdPokemon} alt="" />
             </div>
           </Box>
         </Box>
