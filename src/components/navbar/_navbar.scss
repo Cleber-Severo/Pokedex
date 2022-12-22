@@ -6,9 +6,12 @@
     align-items: center;
     padding: .5rem 2rem;
     background-color: $primary-color;
-
         h3 {
             color: orange;
+            cursor: pointer;
+                &:hover {
+                    color: rgba(255, 165, 0, 0.8);
+                }
         }
         input {
             padding: 1.2rem;

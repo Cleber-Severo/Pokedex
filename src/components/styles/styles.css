@@ -102,6 +102,10 @@
 }
 .Navbar h3 {
   color: orange;
+  cursor: pointer;
+}
+.Navbar h3:hover {
+  color: rgba(255, 165, 0, 0.8);
 }
 .Navbar input {
   padding: 1.2rem;
