@@ -72,8 +72,7 @@ function App() {
 
     for (var i in pokemonData) {
       if(pokemonData[i].data.name.includes(value)) {
-        filteredPokemon.push(pokemonData[i]);
-        setPagination(false)
+        filteredPokemon.push(pokemonData[i]);       
       }
     }
     console.log(filteredPokemon);
@@ -124,7 +123,12 @@ function App() {
           {pokemonData.map( pokemon => {
             const {name, order, sprites, types} = pokemon.data;
             console.log(pokemon.data)
-            return <PokemonCard key={order} name={name} image={sprites.front_default} color={colours} type={types}/>
+            return <PokemonCard 
+                      key={order} 
+                      name={name} 
+                      image={sprites.front_default} 
+                      color={colours} 
+                      type={types}/>
           })}
 
         

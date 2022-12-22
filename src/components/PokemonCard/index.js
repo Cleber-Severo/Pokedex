@@ -66,19 +66,15 @@ const PokemonCard = ({name, image, color, type, stats}) => {
             {name}
             <img src={image} alt="" style={{display: 'block'}} />
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-           
-          
-            <div className='status' >              
+          <Typography id="modal-modal-description" className='status' sx={{ mt: 2 }}>
+            
               <p><span>{stats[0].stat.name}: </span><span>{stats[0].base_stat}</span></p>
-              <p><span>{stats[2].stat.name}: </span><span>{stats[1].base_stat}</span></p>
+              <p><span>{stats[1].stat.name}: </span><span>{stats[1].base_stat}</span></p>
               <p><span>{stats[2].stat.name}: </span><span>{stats[2].base_stat}</span></p>
               <p><span>{stats[3].stat.name}: </span><span>{stats[3].base_stat}</span></p>
               <p><span>{stats[4].stat.name}: </span><span>{stats[4].base_stat}</span></p>
               <p><span>{stats[5].stat.name}: </span><span>{stats[5].base_stat}</span></p>
-              
-            </div>
-             
+        
           </Typography>
         </Box>
       </Modal>
