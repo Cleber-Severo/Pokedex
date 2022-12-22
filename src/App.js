@@ -44,7 +44,7 @@ function App() {
     
     try {
       var endpoints = [];
-      for (var i = 1; i < 50; i++) {
+      for (var i = 1; i < 290; i++) {
         endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
       }
       await axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemonData(res));
@@ -73,7 +73,7 @@ function App() {
         filteredPokemon.push(pokemonData[i]);       
       }
     }
-    console.log(filteredPokemon);
+    //console.log(filteredPokemon);
     setPokemonData(filteredPokemon);
   }
 
@@ -96,7 +96,7 @@ function App() {
         <section className='pokemon-list' >
           {currentCards.map( pokemon => {
             const {name, order, sprites, types, stats, species} = pokemon.data;
-            console.log(pokemon.data)
+            //console.log(pokemon.data)
             return <PokemonCard 
                       key={order} 
                       name={name} 

@@ -9,7 +9,7 @@ const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
 
     return (
         <div className='pagination'>
-            {console.log(pages)}
+            {/* {console.log(pages)} */}
             {pages.map((page, index) =>{
                 return (
                     <button 
