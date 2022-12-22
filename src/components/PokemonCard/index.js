@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -20,7 +21,7 @@ const style = {
   p: 4,
 };
 
-const PokemonCard = ({name, image, color, type, stats}) => {
+const PokemonCard = ({name, image, color, type, stats, species}) => {
   
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -32,23 +33,32 @@ const PokemonCard = ({name, image, color, type, stats}) => {
 
   const typesHandler = () => {
     if(type[1]) {
-
-    const p1Color = {backgroundColor: color[type[1].type.name]};
-
-    return( 
-      <div className='type' >
-        <p style={pColor}>{type[0].type.name}</p>
-        <p style={p1Color}>{type[1].type.name}</p>
-      </div>
-      )
+      const p1Color = {backgroundColor: color[type[1].type.name]};
+      return( 
+        <div className='type' >
+          <p style={pColor}>{type[0].type.name}</p>
+          <p style={p1Color}>{type[1].type.name}</p>
+        </div>
+        )
     }
+
     return <div className='type'><p style={pColor} >{type[0].type.name}</p></div>
   }
   
+  const speciesCall = async () => {
+    const res = await axios.get(species.url);
+    const chain = await axios.get(res.data.evolution_chain.url);
+    const chainInfo = chain.data.chain;
+    console.log(chainInfo.species.name);
+  }
+
   return (
 
     <div className="pokemoncard" style={{ backgroundColor: hexToRgba(color[type[0].type.name], 0.6) }} >
-      <AiFillInfoCircle className='pokemoncard__icon' onClick={handleOpen}/>
+      <AiFillInfoCircle className='pokemoncard__icon' onClick={() => {
+        handleOpen();
+        speciesCall();
+      }}/>
       <img src={image} />
       <div className='pokemoncard__container'>
         <p className='pokemoncar__container--name'>{name}</p>

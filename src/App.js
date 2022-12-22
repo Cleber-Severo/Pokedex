@@ -44,7 +44,7 @@ function App() {
     
     try {
       var endpoints = [];
-      for (var i = 1; i < 200; i++) {
+      for (var i = 1; i < 50; i++) {
         endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
       }
       await axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemonData(res));
@@ -60,8 +60,6 @@ function App() {
   }, [])
 
   const filterPokemon = (value) => {
-    console.log(value)
-
     const filteredPokemon = [];
     
     if(value === ''){
@@ -86,7 +84,7 @@ function App() {
   if(pagination){
     return (
       <div className="App">
-        <Navbar filterPokemon={filterPokemon} />
+        <Navbar filterPokemon={filterPokemon} setCurrentPage={setCurrentPage}/>
         
         <Pagination 
           pagesNum={pokemonData.length} 
@@ -97,7 +95,7 @@ function App() {
 
         <section className='pokemon-list' >
           {currentCards.map( pokemon => {
-            const {name, order, sprites, types, stats} = pokemon.data;
+            const {name, order, sprites, types, stats, species} = pokemon.data;
             console.log(pokemon.data)
             return <PokemonCard 
                       key={order} 
@@ -105,7 +103,9 @@ function App() {
                       image={sprites.front_default} 
                       stats={stats}
                       color={colours} 
-                      type={types}/>
+                      type={types}
+                      species={species}
+                    />
           })}
 
         
@@ -117,12 +117,12 @@ function App() {
 
   return (
       <div className="App">
-        <Navbar filterPokemon={filterPokemon} />
+        <Navbar filterPokemon={filterPokemon} setCurrentPage={setCurrentPage} />
         
         <section className='pokemon-list' >
           {pokemonData.map( pokemon => {
             const {name, order, sprites, types} = pokemon.data;
-            console.log(pokemon.data)
+          
             return <PokemonCard 
                       key={order} 
                       name={name} 
