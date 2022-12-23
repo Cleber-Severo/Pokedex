@@ -17,7 +17,7 @@ const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
                         onClick={() => { changePage(page); }}
                         className={ page == currentPage ? 'active' : ''}
                     >
-                            {page}
+                        {page}
                     </button>
                 )
             })}
