@@ -32,6 +32,7 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
   const [firstPokemon, setFirstPokemon] = useState([]);
   const [secondPokemon, setSecondPokemon] = useState([]);
   const [thirdPokemon, setThirdPokemon] = useState([]);
+  const [pokemonImage, setPokemonImage] = useState([]);
 
   const pColor = {
     backgroundColor: color[type[0].type.name]
@@ -78,6 +79,7 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
     // console.log(resSecondPokemon.data);
     // console.log(resThirdPokemon.data);
 
+    setPokemonImage(pokeImg);
 
     setFirstPokemon(pokeImg[0]);
     setSecondPokemon(pokeImg[1]);
@@ -93,10 +95,13 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
 
   return (
 
+    
+
     <div className="pokemoncard" style={{ backgroundColor: hexToRgba(color[type[0].type.name], 0.6) }} >
       <AiFillInfoCircle className='pokemoncard__icon' onClick={() => {
         handleOpen();
         speciesCall();
+        
       }}/>
       <img src={image} />
       <div className='pokemoncard__container'>
@@ -130,7 +135,16 @@ const PokemonCard = ({name, image, color, type, stats, species}) => {
 
 
           <Box>
+
+            
             <div className='status__imgs' >
+
+              {/* {
+              pokemonImage.map( item => {
+                console.log(item);
+                <img src={item} alt="a" />
+              })} */}
+
               <img src={firstPokemon} alt="" />
               <img src={secondPokemon} alt="" />
               <img src={thirdPokemon} alt="" />

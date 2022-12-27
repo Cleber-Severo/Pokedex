@@ -20,9 +20,9 @@ const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
                         <div>
                             
                             <button key={index} onClick={() => { changePage(page); }} className={ page == currentPage ? 'active' : ''}>{page}</button>
-                            <button key={index} onClick={() => { changePage(page +1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page+ 1}</button>
-                            <button key={index} onClick={() => { changePage(page +2 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page + 2}</button>
-                            <button key={index} onClick={() => { changePage(page +1); }} > {`>`} </button>
+                            <button key={index + 1} onClick={() => { changePage(page +1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page+ 1}</button>
+                            <button key={index + 2} onClick={() => { changePage(page +2 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page + 2}</button>
+                            <button key={index + 3} onClick={() => { changePage(page +1); }} > {`>`} </button>
 
 
 
@@ -55,9 +55,9 @@ const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
                         <div>
                             
                             <button key={index} onClick={() => { changePage(page -1); }} > {`<`} </button>
-                            <button key={index} onClick={() => { changePage(page -2 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page - 2}</button>
-                            <button key={index} onClick={() => { changePage(page -1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page - 1}</button>
-                            <button key={index} onClick={() => { changePage(page); }} className={ page == currentPage ? 'active' : ''}>{page}</button>
+                            <button key={index + 1} onClick={() => { changePage(page -2 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page - 2}</button>
+                            <button key={index +2 } onClick={() => { changePage(page -1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page - 1}</button>
+                            <button key={index + 3} onClick={() => { changePage(page); }} className={ page == currentPage ? 'active' : ''}>{page}</button>
 
 
 
@@ -89,16 +89,16 @@ const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
                     return(
                         <div>
                             <button key={index} onClick={() => { changePage(page -1); }} > {`<`} </button>
-                            <button key={index} onClick={() => { changePage(page -2 ); }} className={ page +1  == currentPage ? 'active' : ''} style={page == 2 ? {display:'none'}:{}} >{page == 2 ? '' : page - 2}</button>
-                            <button key={index} onClick={() => { changePage(page -1 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page - 1}</button>
+                            <button key={index + 1} onClick={() => { changePage(page -2 ); }} className={ page +1  == currentPage ? 'active' : ''} style={page == 2 ? {display:'none'}:{}} >{page == 2 ? '' : page - 2}</button>
+                            <button key={index + 2} onClick={() => { changePage(page -1 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page - 1}</button>
                            
 
-                            <button key={index} onClick={() => { changePage(page); }} className={ page == currentPage ? 'active' : ''}>{page}</button>
-                            <button key={index} onClick={() => { changePage(page +1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page+ 1}</button>
+                            <button key={index + 3} onClick={() => { changePage(page); }} className={ page == currentPage ? 'active' : ''}>{page}</button>
+                            <button key={index + 4} onClick={() => { changePage(page +1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page+ 1}</button>
                             
                        
-                                <button key={index} onClick={() => { changePage(page +2 ); }} className={ page +2 == currentPage ? 'active' : ''} style={currentPage == (pages.length-1) ? { display: 'none' } : {}} >{ page != pages.lengh ? page + 2 : ''}</button>
-                            <button key={index} onClick={() => { changePage(page +1); }} > {`>`} </button>
+                                <button key={index + 5} onClick={() => { changePage(page +2 ); }} className={ page +2 == currentPage ? 'active' : ''} style={currentPage == (pages.length-1) ? { display: 'none' } : {}} >{ page != pages.lengh ? page + 2 : ''}</button>
+                            <button key={index + 6} onClick={() => { changePage(page +1); }} > {`>`} </button>
 
 
 
