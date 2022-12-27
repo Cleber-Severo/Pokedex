@@ -114,8 +114,8 @@ function App() {
           changePage={setCurrentPage} 
           currentPage={currentPage}
         /> 
-
- 
+        
+         
         <section className='pokemon-list' >
           {currentCards.map( pokemon => {
             const {name, order, sprites, types, stats, species} = pokemon.data;

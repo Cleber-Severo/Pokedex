@@ -178,7 +178,8 @@
   margin-bottom: 1rem;
 }
 .loading img {
-  height: 8rem;
+  margin-bottom: 5rem;
+  height: 5rem;
 }
 
 .pagination {
