@@ -1,0 +1,7 @@
+@import '../styles/variables';
+
+select {    
+    background-color: $secondary-color;    
+    height: 2rem;
+    color: white;
+}

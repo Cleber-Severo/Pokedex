@@ -106,41 +106,16 @@ function App() {
 
     return (
       <div className="App">
-        <Navbar filterPokemon={filterPokemon} setCurrentPage={setCurrentPage}/>
-
-        <select name="Filter by type" id="" onChange={(e) => {
-          filterPokemonPerType(e.target.value)
-          console.log(e.target.value)
-        }}>
-          <option value="all">all</option>
-          <option value="normal">normal</option>
-          <option value="fire">fire</option>
-          <option value="water">water</option>
-          <option value="electric">electric</option>
-          <option value="grass">grass</option>
-          <option value="fighting">fighting</option>
-          <option value="poison">poison</option>
-          <option value="ground">ground</option>
-          <option value="flying">flying</option>
-          <option value="psychic">psychic</option>
-          <option value="bug">bug</option>
-          <option value="rock">rock</option>
-          <option value="ghost">ghost</option>
-          <option value="dragon">dragon</option>
-          <option value="dark">dark</option>
-          <option value="steel">steel</option>
-          <option value="fairy">fairy</option>
-        </select>
-
-     
-
+        <Navbar filterPokemon={filterPokemon} filterPokemonPerType={filterPokemonPerType} setCurrentPage={setCurrentPage}/>
+        
         <Pagination 
           pagesNum={pokemonData.length} 
           cardsPerPage={cardsPerPage} 
           changePage={setCurrentPage} 
           currentPage={currentPage}
-        />  
+        /> 
 
+ 
         <section className='pokemon-list' >
           {currentCards.map( pokemon => {
             const {name, order, sprites, types, stats, species} = pokemon.data;

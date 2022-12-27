@@ -132,6 +132,12 @@
   padding: 0.5rem 2rem;
   background-color: #262626;
 }
+.Navbar .logo-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
 .Navbar h3 {
   color: orange;
   cursor: pointer;
@@ -195,6 +201,12 @@
 }
 .pagination .active {
   background-color: orange;
+}
+
+select {
+  background-color: #4d4d4d;
+  height: 2rem;
+  color: white;
 }
 
 body {

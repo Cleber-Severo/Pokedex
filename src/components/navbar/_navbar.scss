@@ -6,6 +6,12 @@
     align-items: center;
     padding: .5rem 2rem;
     background-color: $primary-color;
+        .logo-select{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
         h3 {
             color: orange;
             cursor: pointer;

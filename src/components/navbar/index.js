@@ -1,9 +1,16 @@
 import React from 'react'
+import SelectPokemon from '../SelectPokemon';
 
-const Navbar = ({filterPokemon, setCurrentPage}) => {
+const Navbar = ({filterPokemon, setCurrentPage, filterPokemonPerType}) => {
   return (
     <nav className='Navbar' >
-        <h3  onClick={() => window.location.reload() }>POKEMON</h3>
+        
+        <div className='logo-select'>
+          <h3  onClick={() => window.location.reload() }>POKEMON</h3> 
+
+          <SelectPokemon filterPokemonPerType={filterPokemonPerType} />
+        </div>
+
         <input 
           onChange={(e) => {
             filterPokemon(e.target.value);
