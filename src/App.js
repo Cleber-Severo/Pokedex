@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [pagination, setPagination] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage, setCardsPerPage] = useState(9);
+  const [cardsPerPage, setCardsPerPage] = useState(10);
  
 
   const lastCardIndex = currentPage * cardsPerPage;
@@ -42,6 +42,8 @@ function App() {
   };
 
   const getPokemons = async () => {
+
+    setCurrentPage(1);
     
     try {
       var endpoints = [];
@@ -82,6 +84,7 @@ function App() {
   }
 
   const filterPokemonPerType = (type) => {
+    setCurrentPage(1);
     const typeFiltered = [];
     if(type === 'all') {
       getPokemons();
@@ -114,8 +117,8 @@ function App() {
           changePage={setCurrentPage} 
           currentPage={currentPage}
         /> 
-        
-         
+
+
         <section className='pokemon-list' >
           {currentCards.map( pokemon => {
             const {name, order, sprites, types, stats, species} = pokemon.data;
