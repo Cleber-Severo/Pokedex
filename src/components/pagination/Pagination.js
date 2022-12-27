@@ -1,3 +1,4 @@
+import { display } from '@mui/system';
 import React from 'react'
 
 const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
@@ -43,6 +44,41 @@ const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
 
     }
 
+    if(currentPage === pages.length) {
+        
+        return (
+            <div className='pagination' >
+                {pages.map((page, index) =>{  
+
+                    if(page == currentPage){
+                        return(
+                        <div>
+                            
+                            <button key={index} onClick={() => { changePage(page -1); }} > {`<`} </button>
+                            <button key={index} onClick={() => { changePage(page -2 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page - 2}</button>
+                            <button key={index} onClick={() => { changePage(page -1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page - 1}</button>
+                            <button key={index} onClick={() => { changePage(page); }} className={ page == currentPage ? 'active' : ''}>{page}</button>
+
+
+
+                            {/* <button 
+                                key={index} 
+                                onClick={() => { changePage(page); }}
+                                className={ page == currentPage ? 'active' : ''}
+                            >
+                                {page}
+                            </button> */}
+                        </div>
+                        
+                    )
+                    }
+                    
+                })}
+            </div>
+        )
+
+    }
+
 
     return (
         <div className='pagination'>
@@ -59,7 +95,9 @@ const Pagination = ({pagesNum, cardsPerPage, changePage, currentPage}) => {
 
                             <button key={index} onClick={() => { changePage(page); }} className={ page == currentPage ? 'active' : ''}>{page}</button>
                             <button key={index} onClick={() => { changePage(page +1 ); }} className={ page +1  == currentPage ? 'active' : ''}>{page+ 1}</button>
-                            <button key={index} onClick={() => { changePage(page +2 ); }} className={ page +2 == currentPage ? 'active' : ''}>{page + 2}</button>
+                            
+                       
+                                <button key={index} onClick={() => { changePage(page +2 ); }} className={ page +2 == currentPage ? 'active' : ''} style={currentPage == (pages.length-1) ? { display: 'none' } : {}} >{ page != pages.lengh ? page + 2 : ''}</button>
                             <button key={index} onClick={() => { changePage(page +1); }} > {`>`} </button>
 
 
