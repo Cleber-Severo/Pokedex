@@ -6,9 +6,8 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 8px;
     
-    padding: 16px;
-    
-    
+    padding: 0 16px 16px 16px;
+    margin: 0;
     height: auto;
     width: 100%;
     
@@ -42,7 +41,8 @@
             right: 10px;
             cursor: pointer;
             font-size: 2rem;
-            color: rgba($color: #6390F0, $alpha: 0.7);
+            //color: rgba($color: #6390F0, $alpha: 0.7);
+            color: rgba($color: #fff, $alpha: 0.7);
             transition: .25s all ease-out;
                 &:hover{
                     color: rgba($color: #6390F0, $alpha: 1.0);
