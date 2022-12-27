@@ -9,6 +9,7 @@ import './components/styles/styles.css';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
+  const [pokemonBackup, setPokemonBackup] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pagination, setPagination] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -44,10 +45,13 @@ function App() {
     
     try {
       var endpoints = [];
-      for (var i = 1; i < 60; i++) {
+      for (var i = 1; i < 900; i++) {
         endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
       }
-      await axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => setPokemonData(res));
+      await axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((res) => {
+        setPokemonData(res);
+        setPokemonBackup(res);
+      });
       setLoading(false);
 
     } catch (error) {
@@ -68,13 +72,28 @@ function App() {
       return;
     }
 
-    for (var i in pokemonData) {
-      if(pokemonData[i].data.name.includes(value)) {
-        filteredPokemon.push(pokemonData[i]);       
+    for (var i in pokemonBackup) {
+      if(pokemonBackup[i].data.name.includes(value)) {
+        filteredPokemon.push(pokemonBackup[i]);       
       }
     }
     //console.log(filteredPokemon);
     setPokemonData(filteredPokemon);
+  }
+
+  const filterPokemonPerType = (type) => {
+    const typeFiltered = [];
+    if(type === 'all') {
+      getPokemons();
+    }
+    
+    for (var i in pokemonBackup) {
+      if(pokemonBackup[i].data.types[0].type.name.includes(type)) {
+        typeFiltered.push(pokemonBackup[i]);
+      }
+    }
+
+    setPokemonData(typeFiltered);
   }
 
   if(loading){
@@ -82,10 +101,39 @@ function App() {
   }
 
   if(pagination){
+    console.log(pokemonData)
+    console.log(pokemonBackup)
+
     return (
       <div className="App">
         <Navbar filterPokemon={filterPokemon} setCurrentPage={setCurrentPage}/>
-        
+
+        <select name="Filter by type" id="" onChange={(e) => {
+          filterPokemonPerType(e.target.value)
+          console.log(e.target.value)
+        }}>
+          <option value="all">all</option>
+          <option value="normal">normal</option>
+          <option value="fire">fire</option>
+          <option value="water">water</option>
+          <option value="electric">electric</option>
+          <option value="grass">grass</option>
+          <option value="fighting">fighting</option>
+          <option value="poison">poison</option>
+          <option value="ground">ground</option>
+          <option value="flying">flying</option>
+          <option value="psychic">psychic</option>
+          <option value="bug">bug</option>
+          <option value="rock">rock</option>
+          <option value="ghost">ghost</option>
+          <option value="dragon">dragon</option>
+          <option value="dark">dark</option>
+          <option value="steel">steel</option>
+          <option value="fairy">fairy</option>
+        </select>
+
+     
+
         <Pagination 
           pagesNum={pokemonData.length} 
           cardsPerPage={cardsPerPage} 
