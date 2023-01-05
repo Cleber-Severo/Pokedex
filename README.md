@@ -3,7 +3,7 @@
 ## Introduction
 Thank you for having a look on my project, I hope you enjoy it!
 
-### Hello, thank you for taking a look on my project, it is a pokedex webpage with the idea of consulting the data from the [PokéAPI](https://pokeapi.co/) and using the pokemon info avaliable, you can check it out by the [link](https://pokedex-delta-dun.vercel.app/)
+### Hello, thank you for having a look on my project, it is a pokedex webpage with the idea of consulting the data from the [PokéAPI](https://pokeapi.co/) and using the pokemon info avaliable, you can check it out by the [link](https://pokedex-delta-dun.vercel.app/)
 
 ### The project has been made with React and SASS, having the best practices looking for perfomrmace, good styling and responsive design. 
 
