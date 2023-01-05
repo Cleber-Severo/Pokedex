@@ -9,11 +9,11 @@ Thank you for having a look on my project, I hope you enjoy it!
 
 ### It was possible to implemment the following features: 
 
-    - [ ] Show all pokemon  
-    - [ ] Display general info and evolutions
-    - [ ] Organize the aplication using pagination  
-    - [ ] Filter pokemon by type and search them by name
-    - [ ] Add a Loading screen 
+- [ ] Show all pokemon  
+- [ ] Display general info and evolutions
+- [ ] Organize the aplication using pagination  
+- [ ] Filter pokemon by type and search them by name
+- [ ] Add a Loading screen 
 
 [<img width=80% textAlign="center" src="./public/image/desktop.png" alt="desktop">](https://pokedex-delta-dun.vercel.app/)
 
