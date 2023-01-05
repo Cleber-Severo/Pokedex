@@ -8,6 +8,7 @@ Thank you for having a look on my project, I hope you enjoy it!
 ### The project has been made with React and SASS, having the best practices looking for perfomrmace, good styling and responsive design. 
 
 ### It was possible to implemment the following features: 
+
     - [ ] Show all pokemon  
     - [ ] Display general info and evolutions
     - [ ] Organize the aplication using pagination  
