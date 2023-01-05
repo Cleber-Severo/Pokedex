@@ -9,6 +9,7 @@ const SelectPokemon = ({filterPokemonPerType}) => {
             <option value="water">water</option>
             <option value="electric">electric</option>
             <option value="grass">grass</option>
+            <option value="ice">ice</option>
             <option value="fighting">fighting</option>
             <option value="poison">poison</option>
             <option value="ground">ground</option>

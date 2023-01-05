@@ -219,6 +219,10 @@ select {
   cursor: pointer;
 }
 
+select option {
+  cursor: pointer;
+}
+
 body {
   height: 100vh;
 }
